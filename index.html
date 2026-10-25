@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurello Fruit Essence — Orange Passion Fruit, Lychee Rose &amp; Pineapple Mint Juice</title>
+  <meta name="description" content="Aurello Fruit Essence: 100% natural fruit juice in three flavours — Orange Passion Fruit, Lychee Rose and Pineapple Mint. No added preservatives.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aurello Fruit Essence — Tropical goodness in every sip">
+  <meta property="og:description" content="100% natural fruit juice in three flavours: Orange Passion Fruit, Lychee Rose and Pineapple Mint.">
+  <meta name="theme-color" content="#fff8ea">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fff8ea'/%3E%3Cpath d='M50 86C24 70 14 42 50 12C86 42 76 70 50 86Z' fill='%231f4a33'/%3E%3Cpath d='M50 80V24' stroke='%23fff8ea' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    /* `js` always. `hero-scrub` turns on the scroll-driven hero video. The only thing that switches it
+       off up front is an explicit data-saver request (the file is 4 MB). It is deliberately NOT tied to
+       prefers-reduced-motion or to a guessed connection speed: the video only moves when the visitor
+       scrolls, and those guesses were what left the hero static for people who should see it move.
+       Decided before first paint, so the right frame shows from the start and nothing shifts later. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var c = navigator.connection || {};
+        if (!c.saveData) d.classList.add('hero-scrub');
+      } catch (e) { d.classList.add('hero-scrub'); }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ───────────── shared SVG art: fruit sprites and icons ───────────── -->
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="sliceFlesh" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#ffc063"/><stop offset=".6" stop-color="#f7952c"/><stop offset="1" stop-color="#ec7a1c"/>
+    </radialGradient>
+    <linearGradient id="sliceRind" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6a640"/><stop offset="1" stop-color="#d9661a"/>
+    </linearGradient>
+    <linearGradient id="gPassionRind" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8c3d7a"/><stop offset="1" stop-color="#4b1f4a"/>
+    </linearGradient>
+    <radialGradient id="gPassionPulp" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#ffd45a"/><stop offset=".7" stop-color="#f6a21c"/><stop offset="1" stop-color="#e98a12"/>
+    </radialGradient>
+    <radialGradient id="gLychee" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#ff7d80"/><stop offset=".7" stop-color="#e03a4c"/><stop offset="1" stop-color="#b21f3a"/>
+    </radialGradient>
+    <radialGradient id="gPine" cx=".4" cy=".35" r=".8">
+      <stop offset="0" stop-color="#ffe773"/><stop offset=".7" stop-color="#f9cf3b"/><stop offset="1" stop-color="#eeb41f"/>
+    </radialGradient>
+    <linearGradient id="gMint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fc276"/><stop offset="1" stop-color="#2d7a3f"/>
+    </linearGradient>
+    <linearGradient id="gPetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb3c1"/><stop offset="1" stop-color="#ec6f8e"/>
+    </linearGradient>
+    <linearGradient id="gLeaf" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1f4a33"/><stop offset="1" stop-color="#5aa05c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- orange slice -->
+  <symbol id="f-orange" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="49" fill="url(#sliceRind)"/>
+    <circle cx="50" cy="50" r="44" fill="#fff1d2"/>
+    <circle cx="50" cy="50" r="40" fill="url(#sliceFlesh)"/>
+    <g stroke="#fff1d2" stroke-width="2.6" stroke-linecap="round">
+      <line x1="50" y1="50" x2="88" y2="50"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(45 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(90 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(135 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(180 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(225 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(270 50 50)"/>
+      <line x1="50" y1="50" x2="88" y2="50" transform="rotate(315 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="4.5" fill="#fff1d2"/>
+    <ellipse cx="36" cy="30" rx="16" ry="9" fill="#fff" opacity=".18" transform="rotate(-35 36 30)"/>
+  </symbol>
+
+  <symbol id="f-passion" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="49" fill="url(#gPassionRind)"/>
+  <circle cx="50" cy="50" r="44" fill="#f4e3ae"/>
+  <circle cx="50" cy="50" r="40" fill="url(#gPassionPulp)"/>
+  <g fill="#2d1b17"><ellipse cx="57.8" cy="50.0" rx="3.4" ry="2.2" transform="rotate(0 57.8 50.0)"/><ellipse cx="52.4" cy="57.4" rx="3.4" ry="2.2" transform="rotate(72 52.4 57.4)"/><ellipse cx="43.7" cy="54.6" rx="3.4" ry="2.2" transform="rotate(144 43.7 54.6)"/><ellipse cx="43.7" cy="45.4" rx="3.4" ry="2.2" transform="rotate(216 43.7 45.4)"/><ellipse cx="52.4" cy="42.6" rx="3.4" ry="2.2" transform="rotate(288 52.4 42.6)"/><ellipse cx="64.9" cy="54.6" rx="3.4" ry="2.2" transform="rotate(17 64.9 54.6)"/><ellipse cx="58.5" cy="63.1" rx="3.4" ry="2.2" transform="rotate(57 58.5 63.1)"/><ellipse cx="48.0" cy="65.5" rx="3.4" ry="2.2" transform="rotate(97 48.0 65.5)"/><ellipse cx="38.6" cy="60.6" rx="3.4" ry="2.2" transform="rotate(137 38.6 60.6)"/><ellipse cx="34.4" cy="50.8" rx="3.4" ry="2.2" transform="rotate(177 34.4 50.8)"/><ellipse cx="37.6" cy="40.6" rx="3.4" ry="2.2" transform="rotate(217 37.6 40.6)"/><ellipse cx="46.5" cy="34.8" rx="3.4" ry="2.2" transform="rotate(257 46.5 34.8)"/><ellipse cx="57.1" cy="36.1" rx="3.4" ry="2.2" transform="rotate(297 57.1 36.1)"/><ellipse cx="64.4" cy="44.0" rx="3.4" ry="2.2" transform="rotate(337 64.4 44.0)"/><ellipse cx="72.5" cy="52.3" rx="3.4" ry="2.2" transform="rotate(6 72.5 52.3)"/><ellipse cx="68.9" cy="62.5" rx="3.4" ry="2.2" transform="rotate(33 68.9 62.5)"/><ellipse cx="60.9" cy="69.8" rx="3.4" ry="2.2" transform="rotate(61 60.9 69.8)"/><ellipse cx="50.5" cy="72.6" rx="3.4" ry="2.2" transform="rotate(89 50.5 72.6)"/><ellipse cx="39.9" cy="70.2" rx="3.4" ry="2.2" transform="rotate(116 39.9 70.2)"/><ellipse cx="31.7" cy="63.2" rx="3.4" ry="2.2" transform="rotate(144 31.7 63.2)"/><ellipse cx="27.6" cy="53.2" rx="3.4" ry="2.2" transform="rotate(172 27.6 53.2)"/><ellipse cx="28.7" cy="42.4" rx="3.4" ry="2.2" transform="rotate(200 28.7 42.4)"/><ellipse cx="34.7" cy="33.4" rx="3.4" ry="2.2" transform="rotate(227 34.7 33.4)"/><ellipse cx="44.1" cy="28.2" rx="3.4" ry="2.2" transform="rotate(255 44.1 28.2)"/><ellipse cx="55.0" cy="27.9" rx="3.4" ry="2.2" transform="rotate(283 55.0 27.9)"/><ellipse cx="64.6" cy="32.8" rx="3.4" ry="2.2" transform="rotate(310 64.6 32.8)"/><ellipse cx="71.0" cy="41.5" rx="3.4" ry="2.2" transform="rotate(338 71.0 41.5)"/></g>
+  <ellipse cx="36" cy="31" rx="16" ry="8" fill="#fff" opacity=".18" transform="rotate(-35 36 31)"/>
+</symbol>
+<symbol id="f-lychee" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="url(#gLychee)"/>
+  <g><circle cx="14.5" cy="69.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="13.5" cy="68.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="10.2" cy="57.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="9.2" cy="56.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="9.8" cy="44.9" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="8.8" cy="43.8" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="13.4" cy="32.7" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="12.4" cy="31.6" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="20.5" cy="22.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="19.5" cy="21.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="30.5" cy="14.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="29.5" cy="13.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="42.5" cy="10.2" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="41.5" cy="9.1" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="55.1" cy="9.8" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="54.1" cy="8.7" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="67.3" cy="13.4" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="66.3" cy="12.3" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="77.7" cy="20.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="76.7" cy="19.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="85.5" cy="30.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="84.5" cy="29.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="89.8" cy="42.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="88.8" cy="41.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="90.2" cy="55.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="89.2" cy="54.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="86.6" cy="67.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="85.6" cy="66.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="79.5" cy="77.7" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="78.5" cy="76.6" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="69.5" cy="85.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="68.5" cy="84.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="57.5" cy="89.8" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="56.5" cy="88.7" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="44.9" cy="90.2" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="43.9" cy="89.1" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="32.7" cy="86.6" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="31.7" cy="85.5" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="22.3" cy="79.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="21.3" cy="78.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="33.7" cy="77.8" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="32.7" cy="76.7" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="23.8" cy="68.8" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="22.8" cy="67.7" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="18.5" cy="56.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="17.5" cy="55.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="18.5" cy="43.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="17.5" cy="42.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="24.1" cy="30.9" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="23.1" cy="29.8" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="34.1" cy="22.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="33.1" cy="20.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="46.8" cy="18.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="45.8" cy="16.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="60.1" cy="19.4" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="59.1" cy="18.3" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="71.7" cy="26.2" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="70.7" cy="25.1" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="79.5" cy="37.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="78.5" cy="36.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="82.2" cy="50.2" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="81.2" cy="49.1" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="79.3" cy="63.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="78.3" cy="62.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="71.4" cy="74.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="70.4" cy="72.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="59.8" cy="80.7" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="58.8" cy="79.6" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="46.5" cy="82.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="45.5" cy="80.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="50.3" cy="73.9" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="49.3" cy="72.8" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="37.3" cy="70.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="36.3" cy="69.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="28.4" cy="60.2" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="27.4" cy="59.1" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="26.3" cy="46.9" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="25.3" cy="45.8" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="31.8" cy="34.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="30.8" cy="33.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="43.0" cy="27.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="42.0" cy="26.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="56.5" cy="27.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="55.5" cy="25.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="67.9" cy="34.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="66.9" cy="33.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="73.6" cy="46.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="72.6" cy="45.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="71.9" cy="59.7" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="70.9" cy="58.6" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="63.1" cy="70.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="62.1" cy="68.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="58.2" cy="63.3" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="57.2" cy="62.2" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="44.7" cy="64.7" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="43.7" cy="63.6" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="35.2" cy="55.0" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="34.2" cy="53.9" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="36.8" cy="41.5" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="35.8" cy="40.4" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="48.4" cy="34.4" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="47.4" cy="33.3" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="61.2" cy="39.1" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="60.2" cy="38.0" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="65.5" cy="51.9" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="64.5" cy="50.8" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="55.9" cy="52.6" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="54.9" cy="51.5" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="44.8" cy="53.8" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="43.8" cy="52.7" r="1.7" fill="#ff9aa0" opacity=".75"/><circle cx="49.3" cy="43.6" r="3.7" fill="#a31a33" opacity=".38"/><circle cx="48.3" cy="42.5" r="1.7" fill="#ff9aa0" opacity=".75"/></g>
+  <path d="M64 6C84 14 95 32 93 52C82 46 70 34 64 6Z" fill="#fdf2e9"/>
+  <path d="M64 6C84 14 95 32 93 52" fill="none" stroke="#a31a33" stroke-width="1.6" opacity=".5"/>
+  <ellipse cx="80" cy="30" rx="5" ry="8" fill="#e6cdbd" transform="rotate(35 80 30)"/>
+  <ellipse cx="32" cy="28" rx="15" ry="7" fill="#fff" opacity=".24" transform="rotate(-35 32 28)"/>
+</symbol>
+<symbol id="f-rose" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="gRoseA" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffb3c4"/><stop offset="1" stop-color="#e5557a"/></radialGradient>
+    <radialGradient id="gRoseB" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ff9db5"/><stop offset="1" stop-color="#d23e67"/></radialGradient>
+    <radialGradient id="gRoseC" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#f77d9c"/><stop offset="1" stop-color="#b92a50"/></radialGradient>
+  </defs>
+  <path d="M97.0 50.0A21.6 21.6 0 0 1 83.2 83.2A21.6 21.6 0 0 1 50.0 97.0A21.6 21.6 0 0 1 16.8 83.2A21.6 21.6 0 0 1 3.0 50.0A21.6 21.6 0 0 1 16.8 16.8A21.6 21.6 0 0 1 50.0 3.0A21.6 21.6 0 0 1 83.2 16.8A21.6 21.6 0 0 1 97.0 50.0Z" fill="url(#gRoseA)" stroke="#c43560" stroke-width="1.2"/>
+  <path d="M83.4 60.3A18.2 18.2 0 0 1 57.8 84.1A18.2 18.2 0 0 1 24.3 73.8A18.2 18.2 0 0 1 16.6 39.7A18.2 18.2 0 0 1 42.2 15.9A18.2 18.2 0 0 1 75.7 26.2A18.2 18.2 0 0 1 83.4 60.3Z" fill="url(#gRoseB)" stroke="#b02b52" stroke-width="1.2"/>
+  <path d="M73.9 52.4A13.4 13.4 0 0 1 55.1 73.5A13.4 13.4 0 0 1 29.3 62.1A13.4 13.4 0 0 1 32.1 34.0A13.4 13.4 0 0 1 59.7 28.0A13.4 13.4 0 0 1 73.9 52.4Z" fill="url(#gRoseC)" stroke="#9c2245" stroke-width="1.2"/>
+  <path d="M51.4 50.0L51.5 50.3L51.6 50.6L51.6 50.9L51.6 51.3L51.5 51.6L51.3 52.0L51.0 52.3L50.6 52.6L50.2 52.8L49.7 53.0L49.2 53.0L48.6 53.0L48.0 52.8L47.5 52.6L46.9 52.2L46.5 51.7L46.1 51.2L45.8 50.5L45.6 49.8L45.5 49.1L45.6 48.3L45.8 47.5L46.2 46.7L46.7 46.0L47.3 45.4L48.1 44.8L48.9 44.4L49.9 44.2L50.9 44.1L51.9 44.2L52.9 44.4L53.9 44.8L54.8 45.5L55.6 46.2L56.3 47.2L56.9 48.2L57.2 49.4L57.4 50.6L57.3 51.9L57.1 53.1L56.6 54.4L55.9 55.5L55.0 56.5L53.9 57.4L52.6 58.1L51.3 58.6L49.8 58.8L48.3 58.8L46.8 58.6L45.3 58.1L44.0 57.3L42.7 56.3L41.6 55.1L40.7 53.7L40.1 52.1L39.7 50.4L39.7 48.7L39.9 46.9L40.4 45.2L41.2 43.6" fill="none" stroke="#7d1536" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="34" cy="26" rx="14" ry="6" fill="#fff" opacity=".22" transform="rotate(-35 34 26)"/>
+</symbol>
+<symbol id="f-pineapple" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="49" fill="#cf8d12"/>
+  <circle cx="50" cy="50" r="45" fill="url(#gPine)"/>
+  <g stroke="#f5b91e" stroke-width="2.2" stroke-linecap="round" opacity=".8"><line x1="50" y1="50" x2="88" y2="50" transform="rotate(0 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(45 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(90 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(135 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(180 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(225 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(270 50 50)"/><line x1="50" y1="50" x2="88" y2="50" transform="rotate(315 50 50)"/></g>
+  <g fill="#e7a615"><circle cx="79.0" cy="50.0" r="1.7"/><circle cx="73.5" cy="67.0" r="1.7"/><circle cx="59.0" cy="77.6" r="1.7"/><circle cx="41.0" cy="77.6" r="1.7"/><circle cx="26.5" cy="67.0" r="1.7"/><circle cx="21.0" cy="50.0" r="1.7"/><circle cx="26.5" cy="33.0" r="1.7"/><circle cx="41.0" cy="22.4" r="1.7"/><circle cx="59.0" cy="22.4" r="1.7"/><circle cx="73.5" cy="33.0" r="1.7"/></g>
+  <circle cx="50" cy="50" r="12" fill="#f6c63a"/>
+  <circle cx="50" cy="50" r="12" fill="none" stroke="#e7a615" stroke-width="2"/>
+  <ellipse cx="36" cy="30" rx="16" ry="8" fill="#fff" opacity=".22" transform="rotate(-35 36 30)"/>
+</symbol>
+<symbol id="f-mint" viewBox="0 0 100 100">
+  <path d="M50 96C20 78 8 46 50 6C92 46 80 78 50 96Z" fill="url(#gMint)"/>
+  <path d="M50 92L50 14" stroke="#cfe9bd" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <g stroke="#cfe9bd" stroke-width="1.8" stroke-linecap="round" fill="none">
+    <path d="M50 70L28 56M50 70L72 56M50 52L30 38M50 52L70 38M50 34L38 24M50 34L62 24"/>
+  </g>
+</symbol>
+<symbol id="f-petal" viewBox="0 0 100 100">
+  <path d="M50 96C14 80 4 40 30 14C42 4 50 12 52 16C56 8 70 6 80 18C98 42 84 80 50 96Z" fill="url(#gPetal)"/>
+  <path d="M50 92C46 70 48 44 54 22" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".4" fill="none"/>
+</symbol>
+
+  <!-- logo leaf -->
+  <symbol id="mark-leaf" viewBox="0 0 44 26">
+    <path d="M2 24C6 8 22 1 42 2C40 18 26 26 2 24Z" fill="url(#gLeaf)"/>
+    <path d="M4 23C16 18 28 11 38 4" stroke="#fff8ea" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  </symbol>
+
+  <!-- icons (same three claims as on the posters) -->
+  <symbol id="ico-natural" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="29"/>
+    <path d="M18 42C18 28 28 20 46 20C46 36 36 44 18 42Z"/>
+    <path d="M18 42C26 36 34 30 42 24"/>
+  </symbol>
+  <symbol id="ico-drop" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="29"/>
+    <path d="M32 15C24 26 21 31 21 37C21 43 26 48 32 48C38 48 43 43 43 37C43 31 40 26 32 15Z"/>
+    <path d="M27 38C27 41 29 43 32 43"/>
+  </symbol>
+  <symbol id="ico-sprout" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="29"/>
+    <path d="M32 47V30"/>
+    <path d="M32 34C24 34 19 30 19 23C26 23 32 27 32 34Z"/>
+    <path d="M32 29C32 22 37 17 45 17C45 24 40 29 32 29Z"/>
+    <path d="M24 47H40"/>
+  </symbol>
+  <symbol id="ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 17L17 7M9 7h8v8"/>
+  </symbol>
+  <symbol id="ico-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10.5" cy="10.5" r="6"/><path d="M15 15L20 20M10.5 8v5M8 10.5h5"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#flavours">Skip to the flavours</a>
+
+<!-- ───────────── navigation ───────────── -->
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Aurello Fruit Essence — back to top">
+    <svg class="logo__leaf" aria-hidden="true"><use href="#mark-leaf"/></svg>
+    <span class="logo__word">Aurello</span>
+    <span class="logo__sub">Fruit Essence</span>
+  </a>
+  <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
+  <nav class="nav__links" id="menu" aria-label="Primary">
+    <a href="#flavours">Flavours</a>
+    <a href="#sip">Ways to sip</a>
+    <a href="#inside">Inside</a>
+    <a href="#serve">How to serve</a>
+    <a href="#story">Our story</a>
+    <a class="pill" href="#buy">Where to buy</a>
+  </nav>
+</header>
+
+<!-- floating fruit that follows the page -->
+<div class="fruit-layer" id="fruitLayer" aria-hidden="true"></div>
+
+<main id="top">
+
+  <!-- ───────────── hero ───────────── -->
+  <section class="hero" id="hero">
+   <div class="hero__pin">
+    <div class="hero__copy" id="heroCopy">
+      <p class="hero__eyebrow">Aurello Fruit Essence</p>
+      <h1 class="hero__title">
+        <span class="hero__script">Taste the tropics,</span>
+        <span class="hero__serif">one sip at a time.</span>
+      </h1>
+      <p class="hero__lede">100% natural fruit juice in three flavours: Orange Passion Fruit, Lychee Rose and Pineapple Mint. No added preservatives.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#flavours">Meet the flavours</a>
+        <a class="btn" href="#buy">Where to buy</a>
+      </div>
+      <ul class="chips" aria-label="Jump to a flavour">
+        <li><a href="#flavour-orange"><i style="--c:#f28a1a"></i>Orange Passion Fruit</a></li>
+        <li><a href="#flavour-lychee"><i style="--c:#e0506e"></i>Lychee Rose</a></li>
+        <li><a href="#flavour-pineapple"><i style="--c:#f4c430"></i>Pineapple Mint</a></li>
+      </ul>
+    </div>
+
+    <!-- "The Tropical Surge": the approved Remotion render, aurello-hero-v2.mp4 (9 s, 1920×1080, 30 fps,
+         no audio, no text). It does not play by itself: scrolling drives it. On desktop the hero is pinned
+         while the video scrubs from the first pour to the final lockup; on phones it scrubs as the
+         frame travels up the screen. It is a visual layer behind the copy and never takes pointer events.
+         The still is the same picture as the video's last frame: it is what shows with data-saver, or if
+         the video cannot load. The video's `poster` is its frame at the top of the page. -->
+    <div class="hero__stage" id="heroStage">
+      <div class="hero__media">
+        <img class="hero__still" src="assets/hero/aurello-hero-poster.webp" width="1920" height="1080" loading="lazy" decoding="async"
+             alt="Three Aurello Fruit Essence juice cans: Lychee Rose, Orange Passion Fruit and Pineapple Mint">
+        <video class="hero__video" id="heroVideo" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback
+               poster="assets/hero/aurello-hero-start.webp" width="1920" height="1080" aria-hidden="true" tabindex="-1"
+               data-src="assets/hero/aurello-hero-v2-scrub.mp4"></video>
+      </div>
+    </div>
+    <script>
+      /* Start the download as soon as the element exists, and only where the head script allowed it.
+         The file is fetched into memory and played from a blob: URL. Scrubbing needs the browser to be
+         able to seek anywhere, and that only works if the server answers HTTP range requests, which
+         simple dev servers (python -m http.server) and some static hosts do not. A blob always seeks.
+         If fetch is unavailable (opening index.html straight from disk) main.js uses the plain path. */
+      (function () {
+        var v = document.getElementById('heroVideo');
+        if (!v || !document.documentElement.classList.contains('hero-scrub')) return;
+        var src = v.getAttribute('data-src');
+        if (location.protocol === 'file:') { window.__heroSrc = src; return; }
+        window.__heroSrc = fetch(src)
+          .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
+          .then(function (b) { return URL.createObjectURL(b); })
+          .catch(function () { return src; });
+      })();
+    </script>
+
+    <div class="hero__scroll"><i></i><span>Scroll to pour</span></div>
+   </div>
+  </section>
+
+  <!-- ───────────── story: line art + sliding headline ───────────── -->
+  <section class="story" id="story-art" aria-labelledby="storyTitle">
+    <div class="pin">
+      <img class="story__art" src="assets/story-tropics.svg" alt="" width="1200" height="660" aria-hidden="true">
+      <h2 class="story__title" id="storyTitle">
+        <span class="story__line story__line--1">Fresh fruit.</span>
+        <span class="story__line story__line--2">Bright escape.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- ───────────── chapters: three flavours, three colour worlds ───────────── -->
+  <section class="chapters" id="chapters" aria-label="Three flavours, three escapes">
+    <div class="pin">
+      <article class="scene scene--orange">
+        <div class="scene__sun"></div>
+        <img class="scene__frond" src="assets/frond-solid.svg" alt="" width="700" height="700" aria-hidden="true">
+        <div class="scene__stage" aria-hidden="true"><i class="scene__ring"></i><img class="scene__can" src="assets/aurello-can-orange-passion-fruit.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+        <span class="count">01</span>
+        <div class="scene__body">
+          <p class="scene__flavour">Orange Passion Fruit</p>
+          <h2 class="scene__title"><span class="script">Tropical goodness</span><span>in every sip.</span></h2>
+          <a class="scene__link" href="#flavour-orange">Meet this flavour <b aria-hidden="true">→</b></a>
+        </div>
+      </article>
+      <article class="scene scene--rose">
+        <div class="scene__sun"></div>
+        <img class="scene__frond" src="assets/frond-solid.svg" alt="" width="700" height="700" aria-hidden="true">
+        <div class="scene__stage" aria-hidden="true"><i class="scene__ring"></i><img class="scene__can" src="assets/aurello-can-lychee-rose.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+        <span class="count">02</span>
+        <div class="scene__body">
+          <p class="scene__flavour">Lychee Rose</p>
+          <h2 class="scene__title"><span class="script">Pure fruit.</span><span>Extraordinary moments.</span></h2>
+          <p class="scene__sub">An exotic blend that feels like a vacation.</p>
+          <a class="scene__link" href="#flavour-lychee">Meet this flavour <b aria-hidden="true">→</b></a>
+        </div>
+      </article>
+      <article class="scene scene--gold">
+        <div class="scene__sun"></div>
+        <img class="scene__frond" src="assets/frond-solid.svg" alt="" width="700" height="700" aria-hidden="true">
+        <div class="scene__stage" aria-hidden="true"><i class="scene__ring"></i><img class="scene__can" src="assets/aurello-can-pineapple-mint.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+        <span class="count">03</span>
+        <div class="scene__body">
+          <p class="scene__flavour">Pineapple Mint</p>
+          <h2 class="scene__title"><span class="script">A refreshing escape</span><span>in every sip.</span></h2>
+          <a class="scene__link" href="#flavour-pineapple">Meet this flavour <b aria-hidden="true">→</b></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── flavours: the three posters, shown whole ───────────── -->
+  <section class="flavours" id="flavours">
+    <header class="flavours__head">
+      <p class="flavours__kicker rv">The Aurello Fruit Essence range</p>
+      <h2 class="flavours__title rv" style="--d:.08s">Meet the <em>three</em> flavours</h2>
+      <p class="flavours__lede rv" style="--d:.16s">Orange Passion Fruit, Lychee Rose and Pineapple Mint. Every one is 100% natural, with no added preservatives.</p>
+    </header>
+
+    <div class="flavours__grid" id="flavoursGrid">
+      <article class="flavour flavour--orange" id="flavour-orange">
+        <button class="flavour__frame" type="button" data-poster="0" aria-label="View the Orange Passion Fruit poster full size">
+          <img src="assets/aurello-orange-passion-fruit.webp" width="941" height="1672" loading="lazy" decoding="async"
+               alt="Aurello Fruit Essence Orange Passion Fruit juice. A dewy orange can in a splash of juice with orange slices, passion fruit and ice on a sunny beach. 100% natural, no added preservatives, rich in Vitamin C. Tropical goodness in every sip.">
+          <span class="flavour__zoom" aria-hidden="true"><svg><use href="#ico-zoom"/></svg></span>
+        </button>
+        <p class="flavour__cap"><span>01</span>Orange Passion Fruit</p>
+      </article>
+
+      <article class="flavour flavour--rose" id="flavour-lychee">
+        <button class="flavour__frame" type="button" data-poster="1" aria-label="View the Lychee Rose poster full size">
+          <img src="assets/aurello-lychee-rose.webp" width="941" height="1672" loading="lazy" decoding="async"
+               alt="Aurello Fruit Essence Lychee Rose juice. A pink can in a splash of juice with lychees, roses and rose petals above a misty tropical bay. 100% natural, no added preservatives, rich in antioxidants. Pure fruit, extraordinary moments.">
+          <span class="flavour__zoom" aria-hidden="true"><svg><use href="#ico-zoom"/></svg></span>
+        </button>
+        <p class="flavour__cap"><span>02</span>Lychee Rose</p>
+      </article>
+
+      <article class="flavour flavour--gold" id="flavour-pineapple">
+        <button class="flavour__frame" type="button" data-poster="2" aria-label="View the Pineapple Mint poster full size">
+          <img src="assets/aurello-pineapple-mint.webp" width="941" height="1672" loading="lazy" decoding="async"
+               alt="Aurello Fruit Essence Pineapple Mint juice. A golden can in a splash of juice with pineapple, fresh mint and ice above a sunlit coast. 100% natural, no added preservatives, rich in vitamins. A refreshing escape in every sip.">
+          <span class="flavour__zoom" aria-hidden="true"><svg><use href="#ico-zoom"/></svg></span>
+        </button>
+        <p class="flavour__cap"><span>03</span>Pineapple Mint</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── three ways to sip (horizontal rail) ───────────── -->
+  <section class="sip" id="sip">
+    <div class="pin">
+      <div class="sip__head">
+        <p class="sip__label"><span>04</span><span>Serving ideas</span></p>
+        <h2 class="sip__title"><span>Three ways</span> <span>to</span> <em>sip.</em></h2>
+        <p class="sip__sub">Three fresh serves. One easy ritual.</p>
+      </div>
+      <div class="sip__track" id="sipTrack">
+        <article class="serve serve--orange">
+          <img class="serve__art" src="assets/art-orange.svg" alt="" width="900" height="640" loading="lazy" aria-hidden="true">
+          <div class="serve__body">
+            <p class="serve__tags">Orange Passion Fruit</p>
+            <h3>Over ice</h3>
+            <div class="serve__foot">
+              <p>Pour over plenty of ice and add a slice of fresh orange.</p>
+              <a class="serve__go" href="#flavour-orange" aria-label="See the Orange Passion Fruit flavour"><svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="serve serve--rose">
+          <img class="serve__art" src="assets/art-lychee.svg" alt="" width="900" height="640" loading="lazy" aria-hidden="true">
+          <div class="serve__body">
+            <p class="serve__tags">Lychee Rose</p>
+            <h3>Ice cold</h3>
+            <div class="serve__foot">
+              <p>Serve well chilled, with a fresh lychee on the side.</p>
+              <a class="serve__go" href="#flavour-lychee" aria-label="See the Lychee Rose flavour"><svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="serve serve--gold">
+          <img class="serve__art" src="assets/art-pineapple.svg" alt="" width="900" height="640" loading="lazy" aria-hidden="true">
+          <div class="serve__body">
+            <p class="serve__tags">Pineapple Mint</p>
+            <h3>Fresh &amp; minty</h3>
+            <div class="serve__foot">
+              <p>Serve over ice with a wedge of pineapple and a sprig of fresh mint.</p>
+              <a class="serve__go" href="#flavour-pineapple" aria-label="See the Pineapple Mint flavour"><svg aria-hidden="true"><use href="#ico-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <a class="sip__hint" href="#inside">Scroll to explore <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ───────────── inside every can ───────────── -->
+  <section class="inside" id="inside">
+    <p class="inside__kicker rv">Inside every can</p>
+    <div class="inside__top">
+      <h2 class="inside__title rv" style="--d:.06s">Fresh, natural<br>and <em>proud</em> of it</h2>
+      <p class="inside__lede rv" style="--d:.14s">Every flavour carries the same promise: 100% natural, with no added preservatives.</p>
+    </div>
+    <div class="inside__grid">
+      <article class="promise promise--orange rv">
+        <svg class="promise__fruit" aria-hidden="true"><use href="#f-passion"/></svg>
+        <h3>Orange Passion Fruit</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ico-natural"/></svg><span>100% Natural</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-drop"/></svg><span>No added preservatives</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-sprout"/></svg><span>Rich in Vitamin C</span></li>
+        </ul>
+        <a href="#flavour-orange">See the flavour <b aria-hidden="true">→</b></a>
+      </article>
+      <article class="promise promise--rose rv" style="--d:.1s">
+        <svg class="promise__fruit" aria-hidden="true"><use href="#f-lychee"/></svg>
+        <h3>Lychee Rose</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ico-natural"/></svg><span>100% Natural</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-drop"/></svg><span>No added preservatives</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-sprout"/></svg><span>Rich in antioxidants</span></li>
+        </ul>
+        <a href="#flavour-lychee">See the flavour <b aria-hidden="true">→</b></a>
+      </article>
+      <article class="promise promise--gold rv" style="--d:.2s">
+        <svg class="promise__fruit" aria-hidden="true"><use href="#f-pineapple"/></svg>
+        <h3>Pineapple Mint</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ico-natural"/></svg><span>100% Natural</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-drop"/></svg><span>No added preservatives</span></li>
+          <li><svg aria-hidden="true"><use href="#ico-sprout"/></svg><span>Rich in vitamins</span></li>
+        </ul>
+        <a href="#flavour-pineapple">See the flavour <b aria-hidden="true">→</b></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── ritual ───────────── -->
+  <section class="ritual" id="serve">
+    <p class="ritual__kicker rv">How to serve</p>
+    <div class="ritual__top">
+      <h2 class="ritual__title rv" style="--d:.06s">Good to go<br>in <em>three</em></h2>
+      <p class="ritual__lede rv" style="--d:.14s">A sunny-day serve with maximum refreshment and minimum effort.</p>
+    </div>
+    <ol class="ritual__steps">
+      <li class="rv"><span>01</span><h3>Chill</h3><p>Keep your Aurello cans cold and ready for the moment the sun comes out.</p></li>
+      <li class="rv" style="--d:.1s"><span>02</span><h3>Open</h3><p>Crack the can and enjoy it just as it is, wherever your day takes you.</p></li>
+      <li class="rv" style="--d:.2s"><span>03</span><h3>Sip</h3><p>For a longer, cooler sip, pour over ice and finish with a slice of fruit or a sprig of mint.</p></li>
+    </ol>
+  </section>
+
+  <!-- ───────────── our story ───────────── -->
+  <section class="spark" id="story">
+    <div class="spark__panel rv" data-reveal="clip" aria-hidden="true">
+      <img class="spark__frond" src="assets/frond-solid.svg" alt="" width="700" height="700">
+      <div class="arches">
+        <div class="arch arch--orange"><img class="arch__can" src="assets/aurello-can-orange-passion-fruit.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+        <div class="arch arch--rose"><img class="arch__can" src="assets/aurello-can-lychee-rose.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+        <div class="arch arch--gold"><img class="arch__can" src="assets/aurello-can-pineapple-mint.webp" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+    <div class="spark__copy">
+      <p class="spark__kicker rv">Our story</p>
+      <h2 class="spark__title rv" style="--d:.08s">A little vacation<br>in every <em>can</em></h2>
+      <p class="spark__text rv" style="--d:.16s">Aurello Fruit Essence brings the colour and character of tropical fruit into a juice you can take anywhere. Orange Passion Fruit, Lychee Rose and Pineapple Mint: three flavours, each made to feel like a getaway.</p>
+      <a class="btn btn--light rv" style="--d:.24s" href="#buy">Find Aurello</a>
+    </div>
+  </section>
+
+  <!-- ───────────── marquee ───────────── -->
+  <section class="marquee" id="marquee" aria-label="Orange, passion fruit, lychee, rose, pineapple, mint">
+    <div class="marquee__layer marquee__layer--base" aria-hidden="true">
+      <div class="marquee__track"><span>Orange · Passion fruit · Lychee ·</span><span>Rose · Pineapple · Mint ·</span><span>Orange · Passion fruit · Lychee ·</span></div>
+    </div>
+    <div class="marquee__layer marquee__layer--top" aria-hidden="true">
+      <div class="marquee__track"><span>Orange · Passion fruit · Lychee ·</span><span>Rose · Pineapple · Mint ·</span><span>Orange · Passion fruit · Lychee ·</span></div>
+    </div>
+  </section>
+
+  <!-- ───────────── FAQ ───────────── -->
+  <section class="faq" id="faq">
+    <div class="faq__intro">
+      <p class="faq__kicker rv">Good to know</p>
+      <h2 class="faq__title rv" style="--d:.06s">Your<br><em>questions</em></h2>
+      <p class="faq__lede rv" style="--d:.12s">Everything you need before bringing Aurello to your next sunny afternoon.</p>
+    </div>
+    <div class="faq__list rv" style="--d:.1s">
+      <div class="qa is-open">
+        <h3><button aria-expanded="true" aria-controls="a1" id="q1">What is Aurello Fruit Essence?<i aria-hidden="true"></i></button></h3>
+        <div class="qa__a" id="a1" role="region" aria-labelledby="q1"><div><p>Aurello Fruit Essence is a range of 100% natural fruit juices in three flavours: Orange Passion Fruit, Lychee Rose and Pineapple Mint.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button aria-expanded="false" aria-controls="a2" id="q2">Does it contain preservatives?<i aria-hidden="true"></i></button></h3>
+        <div class="qa__a" id="a2" role="region" aria-labelledby="q2"><div><p>No. Every Aurello flavour has no added preservatives.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button aria-expanded="false" aria-controls="a3" id="q3">What is each flavour rich in?<i aria-hidden="true"></i></button></h3>
+        <div class="qa__a" id="a3" role="region" aria-labelledby="q3"><div><p>Orange Passion Fruit is rich in Vitamin C, Lychee Rose is rich in antioxidants and Pineapple Mint is rich in vitamins.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button aria-expanded="false" aria-controls="a4" id="q4">How should I serve it?<i aria-hidden="true"></i></button></h3>
+        <div class="qa__a" id="a4" role="region" aria-labelledby="q4"><div><p>Serve well chilled, straight from the can or poured over ice. A slice of orange, a fresh lychee or a sprig of mint makes a pretty finishing touch.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button aria-expanded="false" aria-controls="a5" id="q5">Where can I buy it?<i aria-hidden="true"></i></button></h3>
+        <div class="qa__a" id="a5" role="region" aria-labelledby="q5"><div><p>Availability varies by location. Use the Where to buy button to find Aurello near you.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── where to buy ───────────── -->
+  <section class="cta" id="buy">
+    <p class="cta__kicker rv">Your next tropical escape</p>
+    <h2 class="cta__title rv" style="--d:.06s">Find Aurello<br>near <em>you</em></h2>
+    <p class="cta__text rv" style="--d:.12s">Ready for beach days, picnics and every sunny afternoon in between. Look for the Aurello Fruit Essence can at selected retailers.</p>
+    <a class="btn btn--solid rv" style="--d:.18s" href="#buy">Where to buy</a>
+    <p class="cta__fine rv" style="--d:.24s">Availability varies by location</p>
+    <img class="cta__peek" src="assets/peek-fruit.svg" alt="" width="320" height="150" aria-hidden="true">
+  </section>
+
+</main>
+
+<!-- ───────────── footer ───────────── -->
+<footer class="foot">
+  <div class="foot__top">
+    <p class="foot__blurb">Aurello Fruit Essence. 100% natural fruit juice with no added preservatives.</p>
+    <a class="foot__cta" href="#buy"><span>Find your<br>tropical escape</span><b aria-hidden="true">→</b></a>
+  </div>
+  <div class="foot__mark">
+    <p class="foot__tags">Orange Passion Fruit · Lychee Rose · Pineapple Mint</p>
+    <p class="foot__word" aria-label="Aurello">Aurello</p>
+    <p class="foot__sub">Fruit Essence</p>
+  </div>
+  <div class="foot__bar">
+    <p>2026 © Aurello Fruit Essence</p>
+    <nav aria-label="Footer"><a href="#flavours">Flavours</a><a href="#inside">Inside</a><a href="#serve">Serve</a><a href="#faq">FAQ</a></nav>
+    <a class="foot__top-link" href="#top">Back to top <i aria-hidden="true">↑</i></a>
+  </div>
+</footer>
+
+<!-- ───────────── poster viewer ───────────── -->
+<dialog class="lightbox" id="lightbox" aria-label="Flavour poster">
+  <button class="lightbox__close" type="button" aria-label="Close poster">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous flavour">←</button>
+  <img class="lightbox__img" src="assets/aurello-orange-passion-fruit.webp" alt="" width="941" height="1672" loading="lazy" decoding="async">
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next flavour">→</button>
+</dialog>
+
+<script src="main.js" defer></script>
+</body>
+</html>
