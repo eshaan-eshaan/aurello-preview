@@ -21,7 +21,7 @@
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
   });
-  $$('.nav__links a', nav).forEach((a) => a.addEventListener('click', () => {
+  $$('a', nav).forEach((a) => a.addEventListener('click', () => {
     nav.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
   }));

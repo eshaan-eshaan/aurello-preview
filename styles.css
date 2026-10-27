@@ -100,59 +100,321 @@ em { font-style: normal; }
 }
 .fruit-layer .fruit { opacity: .62; }
 
-/* ───────────────────────── nav ───────────────────────── */
+/* ───────────────────────── nav: command bar ─────────────────────────
+   ThreeUI AnimatedTopDock "modern" (source revision 5a736cd3…), coloured for Aurello.
+   Every size is a container-query unit with a clamp, as authored, measured against
+   the full-width .nav. The spring lives in nav-dock.js. */
 .nav {
+  --atd-top: clamp(8px, .9cqw, 14px);
+  --atd-bar-width: min(1240px, calc(100% - clamp(24px, 5cqw, 120px)));
+  --atd-bar-height: clamp(50px, 3.5cqw, 64px);
+  --atd-bar-pad: clamp(5px, 0.42cqw, 9px);
+  --atd-bar-lead: clamp(14px, 1.15cqw, 25px);
+  --atd-item-height: clamp(32px, 2.3cqw, 44px);
+  --atd-item-pad: clamp(10px, 0.86cqw, 18px);
+  --atd-label: clamp(13px, 0.82cqw, 17px);
+  --atd-icon: clamp(14px, 0.95cqw, 19px);
+  --atd-gap: clamp(5px, 0.44cqw, 9px);
+  --atd-brand: clamp(13px, 0.94cqw, 20px);
+  --atd-mark: clamp(28px, 1.9cqw, 38px);
+  --atd-action-height: clamp(36px, 2.6cqw, 50px);
+
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--nav-h);
+  container-type: inline-size;
+  pointer-events: none; /* the strip is only a positioning frame; the bar takes the clicks */
+  color: var(--cream);
+}
+
+.atd-modern__bar {
+  position: absolute;
+  top: var(--atd-top);
+  left: 50%;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--gutter);
-  color: var(--green);
-  background: rgba(255, 248, 234, .78);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  backdrop-filter: blur(14px) saturate(1.2);
-  border-bottom: 1px solid rgba(31, 74, 51, .1);
+  gap: clamp(14px, 2.4cqw, 40px);
+  /* the bar hugs its own content: the dock's track is locked to its rest width by the
+     controller, so the magnified row grows outside it instead of pushing the brand
+     and the actions around */
+  width: max-content;
+  max-width: var(--atd-bar-width);
+  height: var(--atd-bar-height);
+  padding: var(--atd-bar-pad) var(--atd-bar-pad) var(--atd-bar-pad) var(--atd-bar-lead);
+  border: 1px solid rgba(255, 248, 234, .1);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(31, 74, 51, .9), rgba(21, 53, 36, .88));
+  box-shadow: 0 22px 52px -24px rgba(8, 24, 14, .85), inset 0 1px rgba(255, 248, 234, .08);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  transform: translateX(-50%);
+  pointer-events: auto;
   transition: background .4s, box-shadow .4s;
 }
-.nav.is-scrolled { background: rgba(255, 248, 234, .94); box-shadow: 0 .6rem 2rem -1.2rem rgba(31, 74, 51, .35); }
-
-.logo {
-  display: inline-flex; flex-direction: column; align-items: center;
-  text-decoration: none; color: var(--green); line-height: 1;
+.nav.is-scrolled .atd-modern__bar {
+  background: linear-gradient(180deg, rgba(31, 74, 51, .96), rgba(21, 53, 36, .94));
+  box-shadow: 0 18px 44px -20px rgba(8, 24, 14, .95), inset 0 1px rgba(255, 248, 234, .08);
 }
-.logo__leaf { width: 1.5rem; height: .9rem; margin: 0 -2.4rem -.1rem 0; position: relative; z-index: 1; }
-.logo__word { font: 500 1.75rem/1 var(--f-serif); letter-spacing: .2em; text-transform: uppercase; padding-left: .2em; }
-.logo__sub { margin-top: .3rem; font: 500 .44rem/1 var(--f-body); letter-spacing: .5em; text-transform: uppercase; padding-left: .5em; }
 
-.nav__links { display: flex; align-items: center; gap: clamp(1.4rem, 3vw, 3.6rem); }
-.nav__links a {
-  position: relative;
-  font: 700 .7rem/1 var(--f-body);
-  letter-spacing: .13em;
-  text-transform: uppercase;
+/* brand: the leaf mark on a disc, with the stacked wordmark from the old logo */
+.atd-modern__brand {
+  display: inline-flex;
+  flex: none;
+  gap: clamp(7px, 0.6cqw, 13px);
+  align-items: center;
+  color: var(--cream);
   text-decoration: none;
 }
-.nav__links a:not(.pill)::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -.5rem; height: 1.5px;
-  background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease);
+.atd-modern__mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--atd-mark);
+  height: var(--atd-mark);
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .42);
 }
-.nav__links a:not(.pill):hover::after { transform: scaleX(1); }
-.nav__links .pill {
-  background: var(--green); color: var(--cream);
-  padding: .95rem 1.8rem; border-radius: 99px;
-  transition: background .35s, color .35s, transform .35s var(--ease);
+.atd-modern__mark svg { width: 66%; height: auto; aspect-ratio: 44 / 26; }
+.atd-modern__word { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.atd-modern__name {
+  font: 500 calc(var(--atd-brand) * 1.3) / 1 var(--f-serif);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding-left: .2em;
 }
-.nav__links .pill:hover { background: var(--orange); color: var(--green-deep); transform: translateY(-2px); }
+.atd-modern__tag {
+  margin-top: .3em;
+  font: 500 calc(var(--atd-brand) * .46) / 1 var(--f-body);
+  letter-spacing: .5em;
+  text-transform: uppercase;
+  padding-left: .5em;
+  opacity: .78;
+}
 
-.nav__toggle { display: none; width: 2.6rem; height: 2.6rem; position: relative; }
-.nav__toggle span { position: absolute; left: .6rem; right: .6rem; height: 2px; background: var(--green); transition: transform .35s var(--ease), top .35s var(--ease); }
-.nav__toggle span:first-child { top: 1rem; }
-.nav__toggle span:last-child { top: 1.55rem; }
-.nav.open .nav__toggle span:first-child { top: 1.28rem; transform: rotate(45deg); }
-.nav.open .nav__toggle span:last-child { top: 1.28rem; transform: rotate(-45deg); }
+/* dock: a track one item tall and its rest width wide, the row centred inside it, so a
+   growing item overflows evenly without moving a single neighbour */
+.atd-modern__dock {
+  display: flex;
+  flex: none;
+  gap: clamp(2px, 0.2cqw, 5px);
+  align-items: flex-start;
+  justify-content: center;
+  height: var(--atd-item-height);
+}
+.atd-modern__item {
+  display: inline-flex;
+  flex: none;
+  gap: var(--atd-gap);
+  align-items: center;
+  justify-content: center;
+  height: var(--atd-item-height);
+  padding: 0 var(--atd-item-pad);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(255, 248, 234, .72);
+  font: 500 var(--atd-label) / 1 var(--f-body);
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  white-space: nowrap;
+  outline: none;
+  transform-origin: 50% 0;
+  will-change: width, height, transform;
+  cursor: pointer;
+  transition: color .16s, border-color .18s, background .18s, box-shadow .18s, backdrop-filter .18s;
+}
+/* :hover is carried alongside the proximity flag so the glass still lands when the
+   spring is off: reduced motion, a coarse pointer, a narrow viewport */
+.atd-modern__item[data-dock-near="true"],
+.atd-modern__item:hover,
+.atd-modern__item:focus-visible {
+  color: var(--cream);
+  border-color: rgba(255, 248, 234, .12);
+  background: rgba(255, 248, 234, .1);
+  box-shadow: 0 8px 20px -14px rgba(0, 0, 0, .9), inset 0 1px rgba(255, 248, 234, .08);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+}
+.atd-modern__item[aria-current="true"] {
+  color: var(--green-deep);
+  border-color: transparent;
+  background: linear-gradient(180deg, #fffdf6, #f7e3bd);
+  box-shadow: 0 10px 24px -12px rgba(242, 138, 26, .75), inset 0 -1px rgba(0, 0, 0, .1);
+}
+.atd-modern__item--sheet { display: none; }
+
+.atd-modern__icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--atd-icon);
+  height: var(--atd-icon);
+  opacity: .72;
+  transition: opacity .16s;
+}
+.atd-modern__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.atd-modern__item[data-dock-near="true"] .atd-modern__icon,
+.atd-modern__item[aria-current="true"] .atd-modern__icon { opacity: 1; }
+
+/* actions: a quiet link and the gradient call to action */
+.atd-modern__actions {
+  display: inline-flex;
+  flex: none;
+  gap: clamp(4px, 0.34cqw, 8px);
+  align-items: center;
+}
+.atd-modern__ghost {
+  display: inline-flex;
+  align-items: center;
+  height: var(--atd-action-height);
+  padding: 0 clamp(12px, 0.95cqw, 20px);
+  border-radius: 999px;
+  color: rgba(255, 248, 234, .72);
+  font: 500 var(--atd-label) / 1 var(--f-body);
+  text-decoration: none;
+  transition: color .16s, background .16s;
+}
+.atd-modern__ghost:hover { color: var(--cream); background: rgba(255, 248, 234, .1); }
+.atd-modern__cta {
+  display: inline-flex;
+  gap: var(--atd-gap);
+  align-items: center;
+  height: var(--atd-action-height);
+  padding: 0 var(--atd-bar-pad) 0 clamp(14px, 1.1cqw, 24px);
+  border-radius: 999px;
+  color: var(--green-deep);
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  box-shadow: 0 10px 26px -14px rgba(242, 138, 26, .95), inset 0 -1px rgba(0, 0, 0, .14);
+  font: 700 var(--atd-label) / 1 var(--f-body);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .18s;
+}
+.atd-modern__cta svg {
+  box-sizing: border-box;
+  width: calc(var(--atd-action-height) - clamp(12px, 0.9cqw, 20px));
+  height: calc(var(--atd-action-height) - clamp(12px, 0.9cqw, 20px));
+  padding: clamp(4px, 0.3cqw, 7px);
+  border-radius: 999px;
+  background: rgba(21, 53, 36, .12);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.atd-modern__cta:hover {
+  box-shadow: 0 16px 32px -14px rgba(242, 138, 26, 1), inset 0 -1px rgba(0, 0, 0, .14);
+  transform: translateY(-1px);
+}
+
+/* the authored items drop their outline and show only the glass; keyboard users get a ring too */
+.atd-modern__brand:focus-visible,
+.atd-modern__item:focus-visible,
+.atd-modern__ghost:focus-visible,
+.atd-modern__cta:focus-visible,
+.nav__toggle:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+.nav__toggle { display: none; }
+
+/* below 1180px the quiet link steps aside so the bar still fits */
+@media (max-width: 1180px) {
+  .atd-modern__ghost { display: none; }
+}
+
+/* tablets and phones: the dock becomes a menu sheet under the bar (same breakpoint as
+   the stacked hero), the spring is off, and the labels stay visible */
+@media (max-width: 980px) {
+  .atd-modern__bar { width: var(--atd-bar-width); }
+  .atd-modern__brand { order: 0; }
+  .atd-modern__actions { order: 2; margin-left: auto; }
+  .nav__toggle {
+    display: block;
+    order: 3;
+    position: relative;
+    flex: none;
+    width: var(--atd-action-height);
+    height: var(--atd-action-height);
+    border-radius: 999px;
+  }
+  .nav__toggle span {
+    position: absolute;
+    left: 28%;
+    right: 28%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--cream);
+    transition: transform .35s var(--ease), top .35s var(--ease);
+  }
+  .nav__toggle span:first-child { top: calc(50% - 4px); }
+  .nav__toggle span:last-child { top: calc(50% + 2px); }
+  .nav.open .nav__toggle span:first-child { top: calc(50% - 1px); transform: rotate(45deg); }
+  .nav.open .nav__toggle span:last-child { top: calc(50% - 1px); transform: rotate(-45deg); }
+
+  .atd-modern__dock {
+    --atd-label: 1.02rem;
+    --atd-icon: 1.2rem;
+    --atd-item-pad: 1rem;
+    --atd-gap: .8rem;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 2px;
+    height: auto;
+    padding: 8px;
+    border: 1px solid rgba(255, 248, 234, .1);
+    border-radius: 26px;
+    background: linear-gradient(180deg, #1f4a33, #153524); /* solid: page copy must not show through the sheet */
+    box-shadow: 0 28px 60px -26px rgba(8, 24, 14, .9);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(.98);
+    transform-origin: 50% 0;
+    transition: opacity .3s var(--ease), transform .4s var(--ease), visibility 0s linear .4s;
+  }
+  .nav.open .atd-modern__dock {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition-delay: 0s;
+  }
+  .atd-modern__item { justify-content: flex-start; height: auto; min-height: 3rem; }
+  .atd-modern__item--sheet { display: inline-flex; }
+  .atd-modern__icon { opacity: .9; }
+}
+
+/* a phone has no room for the call to action's words: it drops to its arrow, as authored */
+@media (max-width: 560px) {
+  .atd-modern__cta span { display: none; }
+  .atd-modern__cta { padding: 0 var(--atd-bar-pad); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atd-modern__item { transform: none !important; }
+  .atd-modern__cta:hover { transform: none; }
+  .atd-modern__dock, .nav__toggle span { transition: none; }
+}
 
 /* ───────────────────────── buttons ───────────────────────── */
 .btn {
@@ -640,12 +902,6 @@ html:not(.hero-scrub) .hero__scroll { display: none; }
 .js .rv[data-reveal="clip"].in { clip-path: inset(0 0 0 0); }
 
 /* ───────────────────────── responsive ───────────────────────── */
-@media (max-width: 1100px) and (min-width: 821px) {
-  .nav__links { gap: 1.3rem; }
-  .nav__links a { font-size: .62rem; }
-  .logo__word { font-size: 1.5rem; }
-}
-
 /* tablets and down: the hero stacks and the posters get a full-width column each,
    so they are never squeezed into three small thumbnails */
 @media (max-width: 980px) {
@@ -688,17 +944,6 @@ html:not(.hero-scrub) .hero__scroll { display: none; }
 
 @media (max-width: 820px) {
   html { font-size: 15px; }
-  .nav__toggle { display: block; }
-  .nav__links {
-    position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: -1;
-    flex-direction: column; align-items: flex-start; gap: 1.4rem;
-    padding: 2rem var(--gutter) 2.4rem;
-    background: var(--cream); border-bottom: 1px solid rgba(31, 74, 51, .12);
-    transform: translateY(-120%); transition: transform .5s var(--ease);
-  }
-  .nav.open .nav__links { transform: none; }
-  .nav__links a { font-size: .86rem; }
-  .logo__word { font-size: 1.5rem; }
 
   .story__line { font-size: 24vw; }
   .story__line--2 { top: calc(var(--nav-h) + 4vh + 24vw * .92); }

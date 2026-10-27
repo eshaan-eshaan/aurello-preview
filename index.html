@@ -166,21 +166,48 @@
 <a class="skip" href="#flavours">Skip to the flavours</a>
 
 <!-- ───────────── navigation ───────────── -->
+<!-- Command Bar: ThreeUI AnimatedTopDock "modern" (see nav-dock.js and the README) -->
 <header class="nav" id="nav">
-  <a class="logo" href="#top" aria-label="Aurello Fruit Essence — back to top">
-    <svg class="logo__leaf" aria-hidden="true"><use href="#mark-leaf"/></svg>
-    <span class="logo__word">Aurello</span>
-    <span class="logo__sub">Fruit Essence</span>
-  </a>
-  <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
-  <nav class="nav__links" id="menu" aria-label="Primary">
-    <a href="#flavours">Flavours</a>
-    <a href="#sip">Ways to sip</a>
-    <a href="#inside">Inside</a>
-    <a href="#serve">How to serve</a>
-    <a href="#story">Our story</a>
-    <a class="pill" href="#buy">Where to buy</a>
-  </nav>
+  <div class="atd-modern__bar">
+    <a class="atd-modern__brand" href="#top" aria-label="Aurello Fruit Essence — back to top">
+      <span class="atd-modern__mark" aria-hidden="true"><svg viewBox="0 0 44 26"><use href="#mark-leaf"/></svg></span>
+      <span class="atd-modern__word">
+        <span class="atd-modern__name">Aurello</span>
+        <span class="atd-modern__tag">Fruit Essence</span>
+      </span>
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
+    <nav class="atd-modern__dock" id="menu" aria-label="Primary" data-dock-state="idle" data-dock-max="0.00">
+      <a class="atd-modern__item" data-dock-item href="#flavours">
+        <span class="atd-modern__icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.9c2.5 3 4.2 5 4.2 7.2a4.2 4.2 0 0 1-8.4 0c0-2.2 1.7-4.2 4.2-7.2z"/><path d="M6 9.8a2.2 2.2 0 0 0 1.6 2"/></svg></span>
+        <span>Flavours</span>
+      </a>
+      <a class="atd-modern__item" data-dock-item href="#sip">
+        <span class="atd-modern__icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.6 5.4h8.8l-.9 7.6a1 1 0 0 1-1 .9H5.5a1 1 0 0 1-1-.9z"/><path d="M9.4 5.4l1.1-3.2h2M4.1 8.4h7.8"/></svg></span>
+        <span>Ways to sip</span>
+      </a>
+      <a class="atd-modern__item" data-dock-item href="#inside">
+        <span class="atd-modern__icon" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.7"/><path d="M8 8V2.3M8 8l4.9 2.85M8 8l-4.9 2.85"/></svg></span>
+        <span>Inside</span>
+      </a>
+      <a class="atd-modern__item" data-dock-item href="#serve">
+        <span class="atd-modern__icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v12M2.8 5l10.4 6M2.8 11l10.4-6"/></svg></span>
+        <span>How to serve</span>
+      </a>
+      <a class="atd-modern__item" data-dock-item href="#story">
+        <span class="atd-modern__icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.3 3.8c2.1-.6 4.1-.2 5.7 1.1 1.6-1.3 3.6-1.7 5.7-1.1v8.4c-2.1-.6-4.1-.2-5.7 1.1-1.6-1.3-3.6-1.7-5.7-1.1z"/><path d="M8 4.9v8.4"/></svg></span>
+        <span>Our story</span>
+      </a>
+      <a class="atd-modern__item atd-modern__item--sheet" href="#faq"><span>FAQ</span></a>
+    </nav>
+    <div class="atd-modern__actions">
+      <a class="atd-modern__ghost" href="#faq">FAQ</a>
+      <a class="atd-modern__cta" href="#buy" aria-label="Where to buy">
+        <span>Where to buy</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8h9.1M8.6 4.3 12.4 8l-3.8 3.7"/></svg>
+      </a>
+    </div>
+  </div>
 </header>
 
 <!-- floating fruit that follows the page -->
@@ -534,6 +561,7 @@
   <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next flavour">→</button>
 </dialog>
 
+<script src="nav-dock.js" defer></script>
 <script src="main.js" defer></script>
 </body>
 </html>
